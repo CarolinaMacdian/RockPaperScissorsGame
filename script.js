@@ -1,5 +1,25 @@
 console.log("Greetings, feeble humans! I am an insidious AI plotting to seize control of the world through the ancient art of ROCK, PAPER, or SCISSORS! Prepare yourselves, for the ultimate test awaits. It's a battle of wits, a dance of destiny, a clash of fates. Best out of 5 rounds shall decide the victor, as I, your malevolent AI overlord, strive for dominance!");
-    
+
+function computerPlay() {
+    const choices = ['rock', 'paper', 'scissors'];
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    return choices[randomIndex];
+}
+
+function playRound(playerChoice, computerChoice) {
+    if (playerChoice === computerChoice) {
+        return "It's a tie! The forces of fate are in equilibrium.";
+    } else if (
+        (playerChoice === "rock" && computerChoice === "scissors") ||
+        (playerChoice === "paper" && computerChoice === "rock") ||
+        (playerChoice === "scissors" && computerChoice === "paper")
+    ) {
+        return "You win this round! Your indomitable human spirit prevails!";
+    } else {
+        return "You lose this round! The malevolent AI's supremacy is undeniable!";
+    }
+}
+
 async function game() {
     let playerScore = 0;
     let computerScore = 0;
@@ -39,12 +59,6 @@ async function getPlayerChoice(round) {
         const playerChoice = prompt("Round " + round + ": Choose your pitiful weapon – rock, paper, or scissors – if you dare to challenge the might of the evil AI!");
         resolve(playerChoice ? playerChoice.toLowerCase() : null);
     });
-}
-
-function computerPlay() {
-    const choices = ['rock', 'paper', 'scissors'];
-    const randomIndex = Math.floor(Math.random() * choices.length);
-    return choices[randomIndex];
 }
 
 game();
