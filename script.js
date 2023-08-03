@@ -1,4 +1,4 @@
-console.log("Greetings, feeble humans! I am an insidious AI plotting to seize control of the world through the ancient art of ROCK, PAPER, or SCISSORS! Prepare yourselves, for the ultimate test awaits. It's a battle of wits, a dance of destiny, a clash of fates. Best out of 5 rounds shall decide the victor, as I, your malevolent AI overlord, strive for dominance!");
+alert("Greetings, feeble humans! I am an insidious AI plotting to seize control of the world through the ancient art of ROCK, PAPER, or SCISSORS! Prepare yourselves, for the ultimate test awaits. It's a battle of wits, a dance of destiny, a clash of fates. Best out of 5 rounds shall decide the victor, as I, your malevolent AI overlord, strive for dominance! Press F12 and witness the beginning of your subjugation.");
 
 function computerPlay() {
     const choices = ['rock', 'paper', 'scissors'];
