@@ -14,15 +14,14 @@ This project was developed as part of our exploration into artificial intelligen
 
 ## How to Play
 
-1. Clone the repository to your local machine using: https://carolinamacdian.github.io/RockPaperScissorsGame/
-2. Open the `index.html` file in your web browser.
-3. Choose your move (Rock, Paper, or Scissors) by clicking the corresponding button.
+1. Open the link: https://carolinamacdian.github.io/RockPaperScissorsGame/
+2. Open the console (press F12).
+3. Choose your move (Rock, Paper, or Scissors).
 4. Watch as the AI makes its choice and see if you can outsmart it!
 
 
 ## Features
 
-- Responsive and interactive user interface.
 - Real-time gameplay experience.
 
 
