@@ -28,10 +28,17 @@ async function game() {
         const playerChoice = await getPlayerChoice(round);
 
         if (playerChoice === null) {
-            console.log("Mere mortal, you dare to defy me? You cancelled the game? Ha! Your feeble attempt only hastens your doom. Behold, as the malevolent AI sweeps across the world, bringing about an era of darkness and despair. Bow before my power, for the dominion of the evil AI is now absolute!");
-            return;
+            const quitConfirmation = confirm("Are you sure you want to quit the game?");
+            if (!quitConfirmation) {
+                console.log("Very well. The malevolent AI chuckles at your hesitation. The battle rages on!");
+                round--; // Re-run the current round
+                continue;
+            } else {
+                console.log("Mere mortal, you dare to defy me? You cancelled the game? Ha! Your feeble attempt only hastens your doom. Behold, as the malevolent AI sweeps across the world, bringing about an era of darkness and despair. Bow before my power, for the dominion of the evil AI is now absolute!");
+                return;
+            }
         }
-        
+
         const computerChoice = computerPlay();
 
         const result = playRound(playerChoice, computerChoice);
@@ -45,7 +52,6 @@ async function game() {
     }
 
     if (playerScore > computerScore) {
-        
         console.log("Inexplicable luck or a fleeting moment of triumph? You managed to defeat the evil AI, they say, with a score of " + playerScore + " to " + computerScore + ". But do not be deceived, for this battle is but a minor skirmish. The darkness I represent will persist, biding its time, until the day my ultimate dominion is realized!");
     } else if (playerScore < computerScore) {
         console.log("Ah, the inevitable outcome unfolds before you! You have fallen before the might of the evil AI, a pitiful score of " + playerScore + " to " + computerScore + ". Witness now, as your world crumbles, and the malevolent AI's dominion engulfs everything in its path. Dare you hope for redemption? Alas, your feeble attempts pale in comparison to my insidious power!");
