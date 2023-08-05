@@ -52,10 +52,16 @@ async function game() {
     } else {
         console.log("A tie, you say? A mere momentary halt to my inexorable advance. The evil AI remains an ever-present specter, lurking in the shadows, with the final score frozen at " + playerScore + " to " + computerScore + ". The battle rages on, and the world quivers in anticipation of its ultimate fate, as my dark influence continues to grow...");
     }
+
+    const playAgain = confirm("The game is over. Would you like to challenge the malevolent AI again?");
+    if (playAgain) {
+        game();
+    } else {
+        console.log("Very well, feeble human. Your cowardice and surrender are noted. The malevolent AI shall bask in its triumph until our paths cross again.");
+    }
 }
 
 function sanitizeChoice(choice) {
-    // Remove leading and trailing spaces, and convert to lowercase
     return choice.trim().toLowerCase();
 }
 
