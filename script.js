@@ -54,10 +54,36 @@ async function game() {
     }
 }
 
+function sanitizeChoice(choice) {
+    // Remove leading and trailing spaces, and convert to lowercase
+    return choice.trim().toLowerCase();
+}
+
+function isValidChoice(choice) {
+    return choice === "rock" || choice === "paper" || choice === "scissors";
+}
+
 async function getPlayerChoice(round) {
     return new Promise((resolve) => {
-        const playerChoice = prompt("Round " + round + ": Choose your pitiful weapon – rock, paper, or scissors – if you dare to challenge the might of the evil AI!");
-        resolve(playerChoice ? playerChoice.toLowerCase() : null);
+        let playerChoice = prompt("Round " + round + ": Choose your pitiful weapon – rock, paper, or scissors – if you dare to challenge the might of the evil AI!");
+        
+        if (playerChoice === null) {
+            resolve(null);
+            return;
+        }
+
+        playerChoice = sanitizeChoice(playerChoice);
+
+        while (!isValidChoice(playerChoice)) {
+            playerChoice = prompt("Your feeble attempt is incomprehensible to the mighty AI! Choose either rock, paper, or scissors, or dare to face the consequences.");
+            if (playerChoice === null) {
+                resolve(null);
+                return;
+            }
+            playerChoice = sanitizeChoice(playerChoice);
+        }
+        
+        resolve(playerChoice);
     });
 }
 
